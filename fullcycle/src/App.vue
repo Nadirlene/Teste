@@ -1,85 +1,101 @@
 <template>
-  <!-- <v-container fluid> -->
   <v-app>
-    <!-- NAV BAR -->
-    <v-toolbar color="grey darken-4">
-      <v-toolbar-side-icon>
-        <v-img
-        display="block"
-          class="ml-5"
-          src="@/assets/logoFullCycle.jpeg"
-          height="45%"
-          width="45%"
-        >
-        </v-img>
-      </v-toolbar-side-icon>
-      <v-app-bar-nav-icon color="white" class="icone-menu"></v-app-bar-nav-icon>
-
-      <v-divider class="barra" vertical></v-divider>
-
+     <!-- <v-system-bar app>
       <v-spacer></v-spacer>
-      <v-divider vertical ligth></v-divider>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      <v-icon>mdi-square</v-icon>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
+      <v-icon>mdi-circle</v-icon>
 
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-    </v-toolbar>
-    <!-- FIM NAV BAR -->
-    
-      <!-- MENU LATERAL -->
-    <v-navigation-drawer  class="menu-side" >
-      <v-list class="mt-5">
-        <v-list-item class="px-2">
-          <v-list-item-avatar class="mx-auto">
-            <v-img
-              src="https://randomuser.me/api/portraits/women/85.jpg"
-            ></v-img>
-          </v-list-item-avatar>
-        </v-list-item>
+      <v-icon>mdi-triangle</v-icon>
+    </v-system-bar> -->
+    <v-app-bar color="grey darken-4">
 
-        <v-list-item link>
+    </v-app-bar>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+      <v-sheet
+        color="grey lighten-4"
+        class="pa-4"
+      >
+        <v-avatar
+          class="mb-4"
+          color="grey darken-1"
+          size="64"
+        ></v-avatar>
+
+        <div>john@vuetifyjs.com</div>
+      </v-sheet>
+
+      <v-divider></v-divider>
+
+      <v-list>
+        <v-list-item
+          v-for="[icon, text] in links"
+          :key="icon"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ icon }}</v-icon>
+          </v-list-item-icon>
+
           <v-list-item-content>
-            <v-list-item-title class="text-h6 mb-0">
-              <p class="text-center mb-0">Nadirlene</p>
-            </v-list-item-title>
-            <v-list-item-subtitle>
-              <p class="text-center yellow--text">Administrador</p>
-            </v-list-item-subtitle>
+            <v-list-item-title>{{ text }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
-
-      <v-list class="lista" nav dense>
-        <v-list-item-group>
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon pr-3>mdi-account-multiple</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Turmas</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-school</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Estudantes</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-      <v-divider></v-divider>
     </v-navigation-drawer>
-    <!-- FIM MENU LATERAL -->
-    <!-- </v-card>
-   </div> -->
+
+    <v-main>
+      <v-container
+        class="py-8 px-6"
+        fluid
+      >
+        <v-row>
+          <v-col
+            v-for="card in cards"
+            :key="card"
+            cols="12"
+          >
+            <v-card>
+              <v-subheader>{{ card }}</v-subheader>
+
+              <v-list two-line>
+                <template v-for="n in 6">
+                  <v-list-item
+
+                    :key="n"
+                  >
+                    <v-list-item-avatar color="grey darken-1">
+                    </v-list-item-avatar>
+
+                    <v-list-item-content>
+                      <v-list-item-title>Message {{ n }}</v-list-item-title>
+
+                      <v-list-item-subtitle>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil repellendus distinctio similique
+                      </v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-divider
+                    v-if="n !== 6"
+                    :key="`divider-${n}`"
+                    inset
+                  ></v-divider>
+                </template>
+              </v-list>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
   </v-app>
-  <!-- </v-container> -->
+   
+  
 </template>
 
 <script>
@@ -89,31 +105,19 @@ export default {
   components: {},
 
   data: () => ({
-    drawer: true,
-    group: null,
+    cards: ['Today', 'Yesterday'],
+      drawer: null,
+      links: [
+        ['mdi-inbox-arrow-down', 'Inbox'],
+        ['mdi-send', 'Send'],
+        ['mdi-delete', 'Trash'],
+        ['mdi-alert-octagon', 'Spam'],
+      ],
   }),
 };
 </script>
 
 <style scoped>
 
-.theme--light.v-divider.barra {
-  border-color: #424141 !important;
-}
 
-
-.v-list--nav {
-  padding: 10px;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.v-list--nav .v-list-item,
-.v-list--nav .v-list-item:before {
-  min-height: 60px;
-  border-radius: 0px;
-}
-.v-list-item-group .v-list-item--active {
-  background: #ffca28;
-}
 </style>
