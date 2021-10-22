@@ -74,9 +74,13 @@
     </v-navigation-drawer>
     <!-- fim navigation drawer -->
 
-    <v-main>
-      <!--  -->
-    </v-main>
+    <!-- main -->
+    <main>
+      <v-container class="narrow">
+      <labe>fhfdhyhgfd</labe>
+      </v-container>
+      </main>
+    <!-- fim main -->
   </v-app>
 </template>
 
@@ -100,6 +104,16 @@ export default {
 </script>
 
 <style scoped>
+  /* .v-application--wrap {
+      flex: 1 1 auto;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      display: inherit;
+      flex-direction: row;
+      min-height: 100vh;
+      max-width: 100%;
+      position: relative;
+  } */
 .theme--light.v-divider.barra {
   border-color: #424141 !important;
 }
@@ -117,4 +131,5 @@ export default {
   border-radius: 0px;
   padding: 0 48px;
 }
+
 </style>
