@@ -1,27 +1,10 @@
 <template>
-  <v-app>
-    <!-- app bar -->
+  <v-app id="inspire">
     <v-app-bar app color="grey darken-4">
-      <v-toolbar-side-icon>
-        <v-img
-          display="block"
-          class="ml-5"
-          src="@/assets/logoFullCycle.jpeg"
-          height="45%"
-          width="45%"
-        >
-        </v-img>
-      </v-toolbar-side-icon>
-      <v-app-bar-nav-icon
-        color="white"
-        class="icone-menu"
-        heigth="50px"
-        width="51px"
-      ></v-app-bar-nav-icon>
       <v-divider vertical class="barra pr-4"></v-divider>
       <v-responsive max-width="300">
         <v-text-field
-          dense
+          dark
           class="ml-10 mt-5"
           color="yellow"
           label="Buscar"
@@ -29,10 +12,22 @@
         ></v-text-field>
       </v-responsive>
     </v-app-bar>
-    <!-- fim app bar -->
-
-    <!-- navigation drawer -->
-    <v-navigation-drawer class="mt-15" width="320">
+    <v-navigation-drawer app>
+      <v-app-bar color="grey darken-4">
+        <v-img
+          class="ml-5"
+          src="@/assets/logoFullCycle.jpeg"
+          height="45%"
+          width="45%"
+        >
+        </v-img>
+        <v-app-bar-nav-icon
+          color="white"
+          class="icone-menu"
+          heigth="50px"
+          width="51px"
+        ></v-app-bar-nav-icon>
+      </v-app-bar>
       <v-list class="mt-5">
         <v-list-item class="px-2">
           <v-list-item-avatar class="mx-auto">
@@ -41,7 +36,6 @@
             ></v-img>
           </v-list-item-avatar>
         </v-list-item>
-
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="text-h6 mb-0">
@@ -53,8 +47,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-
-      <v-list class="lista" nav>
+      <v-list class="lista">
         <v-list-item-group>
           <v-list-item>
             <v-list-item-icon>
@@ -72,51 +65,55 @@
       </v-list>
       <v-divider></v-divider>
     </v-navigation-drawer>
-    <!-- fim navigation drawer -->
 
-    <!-- main -->
-    <main>
-      <v-container class="narrow">
-      <labe>fhfdhyhgfd</labe>
-      </v-container>
-      </main>
-    <!-- fim main -->
+    <v-info-usuario class="mt-15" 
+      :nome="objetoEstudante.nome"
+      :email="objetoEstudante.email"
+      :primeiroAcesso="objetoEstudante.primeiroAcesso"
+      :ultimoAcesso="objetoEstudante.ultimoAcesso"
+      :porcentagem="objetoEstudante.mediaGeralPorcentagem"
+      :valor="objetoEstudante.mediaGeral"
+    >
+    </v-info-usuario>
+
+    <v-squad
+      :titulo="'Módulos'"
+      :subtitle="objetoCursos.descricaoCurso"
+      :porcentagem="objetoCursos.mediaModuloGeralPorcentagem"
+      :valor="objetoCursos.mediaModuloGeral"
+      :objetoFor="objetoModulos"
+    ></v-squad>
+
+    <v-container class="content">
+      <v-row>
+        <v-col cols="6">
+          <v-card>
+            <v-squad
+              :titulo="'Capítulos'"
+              :subtitle="objetoCursos.modulos[0].descricao"
+              :porcentagem="objetoCursos.mediaCapitulosGeralPorcentagem"
+              :valor="objetoCursos.mediaCapitulosGeral"
+              :objetoFor="objetoCapitulos"
+            ></v-squad>
+          </v-card>
+        </v-col>
+        <v-col cols="6">
+          <v-card>
+            <v-card-title> Desafios </v-card-title>
+            <div v-for="(item, index) in objetoDesafios" :key="index">
+              <v-desafios
+                :texto="item.descricao"
+                :situacao="item.situacao"
+              ></v-desafios>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-app>
 </template>
 
-<script>
-export default {
-  name: "App",
-
-  components: {},
-
-  data: () => ({
-    cards: ["Today", "Yesterday"],
-    drawer: null,
-    links: [
-      ["mdi-inbox-arrow-down", "Inbox"],
-      ["mdi-send", "Send"],
-      ["mdi-delete", "Trash"],
-      ["mdi-alert-octagon", "Spam"],
-    ],
-  }),
-};
-</script>
-
 <style scoped>
-  /* .v-application--wrap {
-      flex: 1 1 auto;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      display: inherit;
-      flex-direction: row;
-      min-height: 100vh;
-      max-width: 100%;
-      position: relative;
-  } */
-.theme--light.v-divider.barra {
-  border-color: #424141 !important;
-}
 .v-list-item-group .v-list-item--active {
   background: #ffca28;
 }
@@ -131,5 +128,39 @@ export default {
   border-radius: 0px;
   padding: 0 48px;
 }
+.flip-card {
+  display: flex;
+  margin-bottom: 5rem;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 0px 30px 300px;
+  border: none;
+}
+
 
 </style>
+
+<script>
+import squad from "@/components/squad/index.vue";
+import infoUsuario from "@/components/info_usuario/index.vue";
+import desafios from "@/components/desafios/index.vue";
+import { estudante } from "@/objetos/objeto.js";
+
+export default {
+  components: {
+    "v-squad": squad,
+    "v-info-usuario": infoUsuario,
+    "v-desafios": desafios,
+  },
+
+  data: () => ({
+    objetoEstudante: estudante,
+    objetoModulos: estudante.cursos[0].modulos,
+    objetoCursos: estudante.cursos[0],
+    objetoCapitulos: estudante.cursos[0].modulos[0].capitulos,
+    objetoDesafios: estudante.desafios,
+  }),
+};
+</script>
