@@ -4,7 +4,7 @@
       <h6>{{texto}}</h6>
       <v-row>
         <v-col cols="8">
-          <v-progress-linear rounded :value="valor"></v-progress-linear>
+          <v-progress-linear color="red" rounded :value="valor"></v-progress-linear>
         </v-col>
         <v-col cols="4">
           <label>{{ porcentagem }}</label>

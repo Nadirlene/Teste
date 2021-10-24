@@ -76,13 +76,30 @@
     >
     </v-info-usuario>
 
-    <v-squad
-      :titulo="'Módulos'"
-      :subtitle="objetoCursos.descricaoCurso"
-      :porcentagem="objetoCursos.mediaModuloGeralPorcentagem"
-      :valor="objetoCursos.mediaModuloGeral"
-      :objetoFor="objetoModulos"
-    ></v-squad>
+    <v-divider></v-divider>
+    <h2>Cursos</h2>
+    <v-card-info
+      :descricao="objetoCursos.descricaoCurso"
+      :porcentagem="objetoCursos.mediaCursoPorcentagem"
+      :valor="objetoCursos.mediaCurso"
+      :data="objetoCursos.data"
+    ></v-card-info>
+
+    <v-media
+      :texto="'Média Geral'"
+      :valor="objetoCursos.mediaCursoGeral"
+      :porcentagem="mediaCursoGeralPorcentagem"
+    ></v-media>
+    <v-card>
+      <v-squad
+        :titulo="'Módulos'"
+        :subtitle="objetoCursos.descricaoCurso"
+        :porcentagem="objetoCursos.mediaModuloGeralPorcentagem"
+        :valor="objetoCursos.mediaModuloGeral"
+        :objetoFor="objetoModulos"
+      ></v-squad>
+    </v-card>
+
 
     <v-container class="content">
       <v-row>
@@ -147,12 +164,16 @@ import squad from "@/components/squad/index.vue";
 import infoUsuario from "@/components/info_usuario/index.vue";
 import desafios from "@/components/desafios/index.vue";
 import { estudante } from "@/objetos/objeto.js";
+import cardInformativo from "@/components/card_informativo/index.vue";
+import media from "@/components/media/index.vue";
 
 export default {
   components: {
     "v-squad": squad,
     "v-info-usuario": infoUsuario,
     "v-desafios": desafios,
+    "v-card-info": cardInformativo,
+    "v-media": media,
   },
 
   data: () => ({
