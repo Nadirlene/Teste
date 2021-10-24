@@ -8,17 +8,17 @@
 
       <v-col cols="4" md="4">
         <h3>{{ nome }}</h3>
-        <p class="caption">{{ email }}</p>
+        <p class="caption mb-0">{{ email }}</p>
       </v-col>
 
       <v-col cols="3" md="4">
-        <p class="subtitle-2 mb-0">Primeiro Acesso</p>
-        <p class="caption">{{ primeiroAcesso }}</p>
+        <p class="subtitle-2 font-weight-bold pt-2 mb-0">Primeiro Acesso</p>
+        <p class="caption mb-0">{{ primeiroAcesso }}</p>
       </v-col>
 
       <v-col cols="3" md="4">
-        <p class="subtitle-2 mb-0">Último Acesso</p>
-        <p class="caption">{{ ultimoAcesso }}</p>
+        <p class="subtitle-2 font-weight-bold pt-2 mb-0">Último Acesso</p>
+        <p class="caption mb-0">{{ ultimoAcesso }}</p>
       </v-col>
 
       <v-col cols="4" md="4">

@@ -88,7 +88,7 @@
     <v-media
       :texto="'Média Geral'"
       :valor="objetoCursos.mediaCursoGeral"
-      :porcentagem="mediaCursoGeralPorcentagem"
+      :porcentagem="objetoCursos.mediaCursoGeralPorcentagem"
     ></v-media>
     <v-card>
       <v-squad

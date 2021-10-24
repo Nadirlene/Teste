@@ -1,13 +1,13 @@
 <template>
-  <v-row>
+  <v-row class="">
     <v-col cols="12">
-      <h6>{{texto}}</h6>
+      <p class="subtitle-2 font-weight-bold  pt-2 mb-0" >{{texto}}</p>
       <v-row>
         <v-col cols="8">
-          <v-progress-linear color="red" rounded :value="valor"></v-progress-linear>
+          <v-progress-linear class="mt-2 bottom" color="#ffca28" height="7" rounded :value="valor"></v-progress-linear>
         </v-col>
         <v-col cols="4">
-          <label>{{ porcentagem }}</label>
+          <label class="subtitle-2">{{ porcentagem }}</label>
         </v-col>
       </v-row>
     </v-col>
