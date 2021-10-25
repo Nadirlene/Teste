@@ -3,17 +3,16 @@
     outlined
     class="mx-auto"
     max-height="100px"
-    max-width="400"
+    max-width="350"
     height="100px"
-    width="400"
+    width="330"
   >
-    <v-card-text>
-      <label class="text-h8 text--primary">{{ texto }}</label>
-      <v-chip class="ma-2" color="light-green">
-        <v-avatar left>
-          <v-icon>mdi-checkbox-marked-circle</v-icon>
-        </v-avatar></v-chip
-      >
+      <v-card-text class="mb-0">
+      <v-row >
+        <v-col cols="8"><label >{{ texto }}</label></v-col>
+        <v-col cols="4"> <v-icon :color="situacao ? 'light-green' : 'gray'">mdi-checkbox-marked-circle</v-icon></v-col>
+      </v-row> 
+     
     </v-card-text>
   </v-card>
 </template>

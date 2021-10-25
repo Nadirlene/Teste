@@ -2,8 +2,8 @@
   <v-row class="mb-5">
     <v-col cols="12">
       <p v-if="tipoTexto" class="subtitle-2 font-weight-bold pt-2 mb-0">{{texto}}</p>
-      <p v-if="!tipoTexto" class="teste">{{texto}}</p>
-      <v-row class="teste">
+      <p v-if="!tipoTexto" class="texto">{{texto}}</p>
+      <v-row class="texto">
         <v-col  cols="10">
           <v-progress-linear class="mt-2 bottom" color="#ffca28" height="7" rounded :value="valor"></v-progress-linear>
         </v-col>
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style scoped>
-.teste{
+.texto{
   font-size: 10px;
   padding: 0%;
   margin-bottom: 0px;

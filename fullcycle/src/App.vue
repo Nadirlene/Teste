@@ -92,7 +92,7 @@
         </v-row>
         <v-row>
           <v-col cols="3" class="pt-0">
-            <v-card-info 
+            <v-card-info
               style="border-color: #ffca28"
               :altura="'110px'"
               :descricao="objetoCursos.descricaoCurso"
@@ -102,7 +102,7 @@
             ></v-card-info>
           </v-col>
         </v-row>
-
+      
         <v-card class="mt-10 mb-8">
           <v-squad
             :titulo="'Módulos'"
@@ -110,12 +110,15 @@
             :porcentagem="objetoCursos.mediaModuloGeralPorcentagem"
             :valor="objetoCursos.mediaModuloGeral"
             :objetoFor="objetoModulos"
+            :larguraColunacard="4"
+            :larguraColunaTitulo="8"
+            :larguraColunaMedia="4"
           ></v-squad>
         </v-card>
 
-      <v-divider></v-divider>
+        <v-divider></v-divider>
 
-        <v-container class="content">
+        <v-container>
           <v-row>
             <v-col cols="8">
               <v-card>
@@ -125,6 +128,9 @@
                   :porcentagem="objetoCursos.mediaCapitulosGeralPorcentagem"
                   :valor="objetoCursos.mediaCapitulosGeral"
                   :objetoFor="objetoCapitulos"
+                  :larguraColunacard="6"
+                  :larguraColunaTitulo="7"
+                  :larguraColunaMedia="5"
                 ></v-squad>
               </v-card>
             </v-col>
@@ -146,32 +152,7 @@
   </v-app>
 </template>
 
-<style scoped>
-h2 {
-  padding-left: 15px;
-  margin-top: 25px;
- 
-}
-.v-list-item-group .v-list-item--active {
-  background: #ffca28;
-}
-.v-list--nav {
-  padding-left: 0px;
-  padding-right: 0px;
-  border-left: 20px;
-}
-.v-list--nav .v-list-item,
-.v-list--nav .v-list-item:before {
-  min-height: 60px;
-  border-radius: 0px;
-  padding: 0 48px;
-}
-.flip-card {
-  display: flex;
-  margin-bottom: 5rem;
-}
 
-</style>
 
 <script>
 import squad from "@/components/squad/index.vue";
@@ -196,7 +177,36 @@ export default {
     objetoCursos: estudante.cursos[0],
     objetoCapitulos: estudante.cursos[0].modulos[0].capitulos,
     objetoDesafios: estudante.desafios,
-    tipoTextoMedia:true,
+    tipoTextoMedia: true,
   }),
 };
 </script>
+
+<style scoped>
+h2 {
+  padding-left: 15px;
+  margin-top: 25px;
+}
+.v-list-item-group .v-list-item--active {
+  background: #ffca28;
+}
+.v-list--nav {
+  padding-left: 0px;
+  padding-right: 0px;
+  border-left: 20px;
+}
+.v-list--nav .v-list-item,
+.v-list--nav .v-list-item:before {
+  min-height: 60px;
+  border-radius: 0px;
+  padding: 0 48px;
+}
+.flip-card {
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 760px) {
+ 
+}
+</style>

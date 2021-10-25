@@ -3,13 +3,13 @@
     <v-row>
       <v-col cols="12">
         <v-row>
-          <v-col cols="8">
+          <v-col :cols="larguraColunaTitulo">
             <v-row>
               <h2>{{ titulo }}</h2>
               <label>{{ subtitle }}</label>
             </v-row>
           </v-col>
-          <v-col cols="4">
+          <v-col :cols="larguraColunaMedia">
             <v-media
               :texto="texto"
               :valor="valor"
@@ -23,14 +23,18 @@
 
     <v-main class="modulos px-0 py-0 mb-5">
       <v-row>
-        <v-col cols="4" v-for="(item, index) in objetoFor" :key="index">
+        <v-col
+          :cols="larguraColunacard"
+          v-for="(item, index) in objetoFor"
+          :key="index"
+        >
           <v-card-info
-          :altura="'130px'"
+            :altura="'130px'"
             :descricao="item.descricao"
             :porcentagem="item.porcentagem"
             :valor="item.valor"
             :data="item.data"
-            
+            :qtdAulas="item.qtdAulas"
           >
           </v-card-info>
         </v-col>
@@ -49,6 +53,9 @@ export default {
     porcentagem: String,
     valor: Number,
     objetoFor: Array,
+    larguraColunacard: Number,
+    larguraColunaTitulo: Number,
+    larguraColunaMedia: Number,
   },
   components: {
     "v-media": media,
@@ -56,7 +63,7 @@ export default {
   },
   data: () => ({
     texto: "Média de Módulos",
-    tipoTextoMedia:true,
+    tipoTextoMedia: true,
   }),
 };
 </script>
@@ -75,6 +82,14 @@ label {
 
 main.v-main.modulos {
   padding: 0;
+}
+
+@media (max-width: 1320px) {
+  .div-col-md-4 {
+    display: flex;
+    flex-direction: row;
+  
+  }
 }
 </style>
 

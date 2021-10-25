@@ -1,27 +1,27 @@
 <template>
   <v-container class="content">
     <v-row>
-      <v-col cols="2" >
+      <v-col cols="2" md="4" class="icons">
         <v-btn text><v-icon>mdi-arrow-left</v-icon></v-btn>
-        <v-icon >mdi-school</v-icon>
+        <v-icon>mdi-school</v-icon>
       </v-col>
 
-      <v-col cols="3">
+      <v-col cols="3" md="4" sm="2">
         <h3>{{ nome }}</h3>
         <p class="caption mb-0">{{ email }}</p>
       </v-col>
 
-      <v-col cols="2">
+      <v-col cols="2" md="4">
         <p class="subtitle-2 font-weight-bold pt-2 mb-0">Primeiro Acesso</p>
         <p class="caption mb-0">{{ primeiroAcesso }}</p>
       </v-col>
 
-      <v-col cols="2">
+      <v-col cols="2" md="4" sm="2">
         <p class="subtitle-2 font-weight-bold pt-2 mb-0">Último Acesso</p>
         <p class="caption mb-0">{{ ultimoAcesso }}</p>
       </v-col>
 
-      <v-col cols="3">
+      <v-col cols="3" md="4" sm="2">
         <v-media
           :texto="texto"
           :valor="valor"
@@ -49,7 +49,7 @@ export default {
   },
   data: () => ({
     texto: "Média Geral",
-    tipoTextoMedia:true,
+    tipoTextoMedia: true,
   }),
 };
 </script>
@@ -61,16 +61,26 @@ export default {
 }
 
 @media (max-width: 960px) {
+  .content {
+    width: 50vw;
+  }
   .col-md-4 {
-    flex: 0 0 20%;
-    max-width: 20%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: table;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icons {
+    display: none;
   }
 }
 
 @media (max-width: 760px) {
   .col-md-4 {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 </style>
