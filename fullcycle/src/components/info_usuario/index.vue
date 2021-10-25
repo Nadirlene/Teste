@@ -1,9 +1,9 @@
 <template>
   <v-container class="content">
     <v-row>
-      <v-col cols="1">
-        <!-- <v-btn text><v-icon>mdi-arrow-left</v-icon></v-btn> -->
-        <v-icon>mdi-school</v-icon>
+      <v-col cols="1" >
+        <v-btn text><v-icon>mdi-arrow-left</v-icon></v-btn>
+        <v-icon >mdi-school</v-icon>
       </v-col>
 
       <v-col cols="3">
@@ -22,7 +22,7 @@
       </v-col>
 
       <v-col cols="3" class="justify-end">
-        <v-media 
+        <v-media
           :texto="texto"
           :valor="valor"
           :porcentagem="porcentagem"
