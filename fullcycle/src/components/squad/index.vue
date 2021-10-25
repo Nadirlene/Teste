@@ -14,25 +14,26 @@
               :texto="texto"
               :valor="valor"
               :porcentagem="porcentagem"
+              :tipoTexto="tipoTextoMedia"
             ></v-media>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
-    <v-main class="modulos">
+
+    <v-main class="modulos px-0 py-0 mb-5">
       <v-row>
         <v-col cols="4" v-for="(item, index) in objetoFor" :key="index">
-      <v-card-info
-        class="mt-10"
-        
-        
-        :descricao="item.descricao"
-        :porcentagem="item.porcentagem"
-        :valor="item.valor"
-        :data="item.data"
-      >
-      </v-card-info>
-      </v-col>
+          <v-card-info
+          :altura="'130px'"
+            :descricao="item.descricao"
+            :porcentagem="item.porcentagem"
+            :valor="item.valor"
+            :data="item.data"
+            
+          >
+          </v-card-info>
+        </v-col>
       </v-row>
     </v-main>
   </v-container>
@@ -55,6 +56,7 @@ export default {
   },
   data: () => ({
     texto: "Média de Módulos",
+    tipoTextoMedia:true,
   }),
 };
 </script>
@@ -71,10 +73,8 @@ label {
   padding-left: 40px;
 }
 
-main.v-main.modulos{
+main.v-main.modulos {
   padding: 0;
 }
-
-
 </style>
 

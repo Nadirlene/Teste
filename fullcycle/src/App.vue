@@ -86,12 +86,15 @@
               :texto="'Média Geral'"
               :valor="objetoCursos.mediaCursoGeral"
               :porcentagem="objetoCursos.mediaCursoGeralPorcentagem"
+              :tipoTexto="tipoTextoMedia"
             ></v-media>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="3" class="pt-0">
-            <v-card-info style="border-color: #ffca28"
+            <v-card-info 
+              style="border-color: #ffca28"
+              :altura="'110px'"
               :descricao="objetoCursos.descricaoCurso"
               :porcentagem="objetoCursos.mediaCursoPorcentagem"
               :valor="objetoCursos.mediaCurso"
@@ -100,7 +103,7 @@
           </v-col>
         </v-row>
 
-        <v-card class="mt-10">
+        <v-card class="mt-10 mb-8">
           <v-squad
             :titulo="'Módulos'"
             :subtitle="objetoCursos.descricaoCurso"
@@ -110,9 +113,11 @@
           ></v-squad>
         </v-card>
 
+      <v-divider></v-divider>
+
         <v-container class="content">
           <v-row>
-            <v-col cols="6">
+            <v-col cols="8">
               <v-card>
                 <v-squad
                   :titulo="'Capítulos'"
@@ -123,7 +128,7 @@
                 ></v-squad>
               </v-card>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="4">
               <v-card>
                 <v-card-title> Desafios </v-card-title>
                 <div v-for="(item, index) in objetoDesafios" :key="index">
@@ -191,6 +196,7 @@ export default {
     objetoCursos: estudante.cursos[0],
     objetoCapitulos: estudante.cursos[0].modulos[0].capitulos,
     objetoDesafios: estudante.desafios,
+    tipoTextoMedia:true,
   }),
 };
 </script>

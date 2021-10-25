@@ -26,6 +26,7 @@
           :texto="texto"
           :valor="valor"
           :porcentagem="porcentagem"
+          :tipoTexto="tipoTextoMedia"
         ></v-media>
       </v-col>
     </v-row>
@@ -48,6 +49,7 @@ export default {
   },
   data: () => ({
     texto: "Média Geral",
+    tipoTextoMedia:true,
   }),
 };
 </script>
