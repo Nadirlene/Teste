@@ -1,7 +1,7 @@
 <template>
   <v-container class="content">
     <v-row>
-      <v-col cols="1" >
+      <v-col cols="2" >
         <v-btn text><v-icon>mdi-arrow-left</v-icon></v-btn>
         <v-icon >mdi-school</v-icon>
       </v-col>
@@ -21,7 +21,7 @@
         <p class="caption mb-0">{{ ultimoAcesso }}</p>
       </v-col>
 
-      <v-col cols="3" class="justify-end">
+      <v-col cols="3">
         <v-media
           :texto="texto"
           :valor="valor"

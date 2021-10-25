@@ -81,7 +81,7 @@
 
         <v-row>
           <v-col cols="10"><h2>Cursos</h2></v-col>
-          <v-col cols="2" class="mt-5">
+          <v-col cols="2" class="mt-5 pr-4">
             <v-media
               :texto="'Média Geral'"
               :valor="objetoCursos.mediaCursoGeral"
@@ -90,8 +90,8 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="6">
-            <v-card-info
+          <v-col cols="3" class="pt-0">
+            <v-card-info style="border-color: #ffca28" elevation
               :descricao="objetoCursos.descricaoCurso"
               :porcentagem="objetoCursos.mediaCursoPorcentagem"
               :valor="objetoCursos.mediaCurso"
@@ -143,8 +143,9 @@
 
 <style scoped>
 h2 {
-  padding: 30px 0px 30px 210px;
-  margin-left: 75px;
+  padding-left: 15px;
+  margin-top: 25px;
+ 
 }
 .v-list-item-group .v-list-item--active {
   background: #ffca28;
