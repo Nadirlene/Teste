@@ -5,10 +5,9 @@
         <v-row>
           <v-col cols="8">
             <v-row>
-                 <h2>{{ titulo }}</h2>
-            <label>{{ subtitle }}</label>
+              <h2>{{ titulo }}</h2>
+              <label>{{ subtitle }}</label>
             </v-row>
-         
           </v-col>
           <v-col cols="4">
             <v-media
@@ -17,23 +16,25 @@
               :porcentagem="porcentagem"
             ></v-media>
           </v-col>
-          <!-- <v-col>
-
-          </v-col> -->
         </v-row>
       </v-col>
     </v-row>
-
-    <v-card-info
-      class="mt-10"
-      v-for="(item, index) in objetoFor"
-      :key="index"
-      :descricao="item.descricao"
-      :porcentagem="item.porcentagem"
-      :valor="item.valor"
-      :data="item.data"
-    >
-    </v-card-info>
+    <v-main class="modulos">
+      <v-row>
+        <v-col cols="4" v-for="(item, index) in objetoFor" :key="index">
+      <v-card-info
+        class="mt-10"
+        
+        
+        :descricao="item.descricao"
+        :porcentagem="item.porcentagem"
+        :valor="item.valor"
+        :data="item.data"
+      >
+      </v-card-info>
+      </v-col>
+      </v-row>
+    </v-main>
   </v-container>
 </template>
 
@@ -69,5 +70,11 @@ label {
   margin-top: 20px;
   padding-left: 40px;
 }
+
+main.v-main.modulos{
+  padding: 0;
+}
+
+
 </style>
 
