@@ -2,17 +2,30 @@
   <v-container class="content grey lighten-5">
     <v-row>
       <v-col cols="12">
-        <h4>{{ titulo }}</h4>
-        <label>{{ subtitle }}</label>
-        <v-media
-          :texto="texto"
-          :valor="valor"
-          :porcentagem="porcentagem"
-        ></v-media>
+        <v-row>
+          <v-col cols="8">
+            <v-row>
+                 <h2>{{ titulo }}</h2>
+            <label>{{ subtitle }}</label>
+            </v-row>
+         
+          </v-col>
+          <v-col cols="4">
+            <v-media
+              :texto="texto"
+              :valor="valor"
+              :porcentagem="porcentagem"
+            ></v-media>
+          </v-col>
+          <!-- <v-col>
+
+          </v-col> -->
+        </v-row>
       </v-col>
     </v-row>
-    
+
     <v-card-info
+      class="mt-10"
       v-for="(item, index) in objetoFor"
       :key="index"
       :descricao="item.descricao"
@@ -44,4 +57,17 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+h2 {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+}
+
+label {
+  margin-top: 20px;
+  padding-left: 40px;
+}
+</style>
 

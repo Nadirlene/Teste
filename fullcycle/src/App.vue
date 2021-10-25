@@ -80,8 +80,8 @@
         <v-divider></v-divider>
 
         <v-row>
-          <v-col cols="10"><h2>Cursos</h2></v-col>
-          <v-col cols="2" class="mt-5 pr-4">
+          <v-col cols="8"><h2>Cursos</h2></v-col>
+          <v-col cols="4" class="mt-5 pr-4">
             <v-media
               :texto="'Média Geral'"
               :valor="objetoCursos.mediaCursoGeral"
@@ -91,7 +91,7 @@
         </v-row>
         <v-row>
           <v-col cols="3" class="pt-0">
-            <v-card-info style="border-color: #ffca28" elevation
+            <v-card-info style="border-color: #ffca28"
               :descricao="objetoCursos.descricaoCurso"
               :porcentagem="objetoCursos.mediaCursoPorcentagem"
               :valor="objetoCursos.mediaCurso"
