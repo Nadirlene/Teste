@@ -12,7 +12,7 @@
         ></v-text-field>
       </v-responsive>
     </v-app-bar>
-    <v-navigation-drawer app>
+    <v-navigation-drawer app fixed>
       <v-app-bar color="grey darken-4">
         <v-img
           class="ml-5"
@@ -65,72 +65,87 @@
       </v-list>
       <v-divider></v-divider>
     </v-navigation-drawer>
+    <v-main>
+      <v-container>
+        <v-info-usuario
+          :nome="objetoEstudante.nome"
+          :email="objetoEstudante.email"
+          :primeiroAcesso="objetoEstudante.primeiroAcesso"
+          :ultimoAcesso="objetoEstudante.ultimoAcesso"
+          :porcentagem="objetoEstudante.mediaGeralPorcentagem"
+          :valor="objetoEstudante.mediaGeral"
+        >
+        </v-info-usuario>
 
-    <v-info-usuario class="mt-15" 
-      :nome="objetoEstudante.nome"
-      :email="objetoEstudante.email"
-      :primeiroAcesso="objetoEstudante.primeiroAcesso"
-      :ultimoAcesso="objetoEstudante.ultimoAcesso"
-      :porcentagem="objetoEstudante.mediaGeralPorcentagem"
-      :valor="objetoEstudante.mediaGeral"
-    >
-    </v-info-usuario>
+        <v-divider></v-divider>
 
-    <v-divider></v-divider>
-    <h2>Cursos</h2>
-    <v-card-info
-      :descricao="objetoCursos.descricaoCurso"
-      :porcentagem="objetoCursos.mediaCursoPorcentagem"
-      :valor="objetoCursos.mediaCurso"
-      :data="objetoCursos.data"
-    ></v-card-info>
+        <v-row>
+          <v-col cols="10"><h2>Cursos</h2></v-col>
+          <v-col cols="2" class="mt-5">
+            <v-media
+              :texto="'Média Geral'"
+              :valor="objetoCursos.mediaCursoGeral"
+              :porcentagem="objetoCursos.mediaCursoGeralPorcentagem"
+            ></v-media>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="6">
+            <v-card-info
+              :descricao="objetoCursos.descricaoCurso"
+              :porcentagem="objetoCursos.mediaCursoPorcentagem"
+              :valor="objetoCursos.mediaCurso"
+              :data="objetoCursos.data"
+            ></v-card-info>
+          </v-col>
+        </v-row>
 
-    <v-media
-      :texto="'Média Geral'"
-      :valor="objetoCursos.mediaCursoGeral"
-      :porcentagem="objetoCursos.mediaCursoGeralPorcentagem"
-    ></v-media>
-    <v-card>
-      <v-squad
-        :titulo="'Módulos'"
-        :subtitle="objetoCursos.descricaoCurso"
-        :porcentagem="objetoCursos.mediaModuloGeralPorcentagem"
-        :valor="objetoCursos.mediaModuloGeral"
-        :objetoFor="objetoModulos"
-      ></v-squad>
-    </v-card>
+        <v-card class="mt-10">
+          <v-squad
+            :titulo="'Módulos'"
+            :subtitle="objetoCursos.descricaoCurso"
+            :porcentagem="objetoCursos.mediaModuloGeralPorcentagem"
+            :valor="objetoCursos.mediaModuloGeral"
+            :objetoFor="objetoModulos"
+          ></v-squad>
+        </v-card>
 
-
-    <v-container class="content">
-      <v-row>
-        <v-col cols="6">
-          <v-card>
-            <v-squad
-              :titulo="'Capítulos'"
-              :subtitle="objetoCursos.modulos[0].descricao"
-              :porcentagem="objetoCursos.mediaCapitulosGeralPorcentagem"
-              :valor="objetoCursos.mediaCapitulosGeral"
-              :objetoFor="objetoCapitulos"
-            ></v-squad>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card>
-            <v-card-title> Desafios </v-card-title>
-            <div v-for="(item, index) in objetoDesafios" :key="index">
-              <v-desafios
-                :texto="item.descricao"
-                :situacao="item.situacao"
-              ></v-desafios>
-            </div>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+        <v-container class="content">
+          <v-row>
+            <v-col cols="6">
+              <v-card>
+                <v-squad
+                  :titulo="'Capítulos'"
+                  :subtitle="objetoCursos.modulos[0].descricao"
+                  :porcentagem="objetoCursos.mediaCapitulosGeralPorcentagem"
+                  :valor="objetoCursos.mediaCapitulosGeral"
+                  :objetoFor="objetoCapitulos"
+                ></v-squad>
+              </v-card>
+            </v-col>
+            <v-col cols="6">
+              <v-card>
+                <v-card-title> Desafios </v-card-title>
+                <div v-for="(item, index) in objetoDesafios" :key="index">
+                  <v-desafios
+                    :texto="item.descricao"
+                    :situacao="item.situacao"
+                  ></v-desafios>
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
 <style scoped>
+h2 {
+  padding: 30px 0px 30px 210px;
+  margin-left: 75px;
+}
 .v-list-item-group .v-list-item--active {
   background: #ffca28;
 }
@@ -149,13 +164,6 @@
   display: flex;
   margin-bottom: 5rem;
 }
-.content {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 30px 0px 30px 300px;
-  border: none;
-}
-
 
 </style>
 

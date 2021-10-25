@@ -1,5 +1,5 @@
 <template>
-  <v-container class="content red">
+  <v-container class="content grey lighten-5">
     <v-row>
       <v-col cols="12">
         <h4>{{ titulo }}</h4>
