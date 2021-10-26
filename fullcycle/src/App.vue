@@ -253,5 +253,4 @@ export default {
 .desafio-card {
   padding: 2%;
 }
-
 </style>
