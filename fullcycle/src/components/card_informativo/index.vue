@@ -1,34 +1,28 @@
 <template>
-  <v-card
-    outlined
-    class="mx-auto"
-    max-height="180px"
-    min-width="300"
-    max-width="350"
-    width="400"
-    :height="altura"
-  >
-    <v-card-text class="mb-0">
+  <v-card min-height="140px" outlined>
+    <v-card-text>
       <v-row>
-        <v-col cols="8"
-          ><label>{{ descricao }}</label>
+        <v-col cols="8">
+          <strong>{{ descricao }}</strong>
         </v-col>
         <v-col cols="4">
           <span class="float-right">{{ data }}</span>
         </v-col>
       </v-row>
-      <v-row v-if="qtdAulas" style="justify-content: end; padding-right: 20px">
-        <span>{{ qtdAulas }}</span>
+      <v-row v-if="qtdAulas" class="pr-3">
+        <v-spacer></v-spacer>
+        {{ qtdAulas }}
       </v-row>
     </v-card-text>
-    <v-card-text class="pt-0">
+    <v-card-actions class="pl-5">
       <v-media
+        :size-text="'12'"
         :texto="texto"
         :valor="valor"
         :porcentagem="porcentagem"
         :tipoTexto="false"
-      ></v-media>
-    </v-card-text>
+      />
+    </v-card-actions>
   </v-card>
 </template>
 
@@ -44,7 +38,6 @@ export default {
     porcentagem: String,
     valor: Number,
     data: String,
-    altura: String,
     qtdAulas: String,
   },
 
